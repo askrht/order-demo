@@ -19,7 +19,8 @@
 
     ```
 ## Sample app to demo a @Load bug in objectify.
-- `git clone git@github.com:askrht/order-demo.git`
+- `git clone https://github.com/askrht/order-demo.git`
+- https://github.com/askrht/order-demo.git
 
 ## One time setup only if you want to deploy to appengine
 - Replace WEB_CLIENT_ID in Constants.java

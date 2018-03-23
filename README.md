@@ -1,4 +1,4 @@
-#  @Parent is not loaded even though it has @Load annotation. Here's the relevant code.
+#  `@Parent` is not loaded even though it has `@Load` annotation. Here's the relevant code.
     ```
     @Cache
     @Entity

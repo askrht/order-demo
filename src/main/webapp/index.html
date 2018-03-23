@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 12px; line-height: 22px; word-wrap: break-word; } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } img { max-width: 100%; max-height: 100%; } a { color: #4080D0; text-decoration: none; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } a:hover { color: #4080D0; text-decoration: underline; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left: 5px solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ .vscode-light { color: rgb(30, 30, 30); } .vscode-dark { color: #DDD; } .vscode-high-contrast { color: white; } .vscode-light code { color: #A31515; } .vscode-dark code { color: #D7BA7D; } .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } .vscode-light blockquote, .vscode-dark blockquote { background: rgba(127, 127, 127, 0.1); border-color: rgba(0, 122, 204, 0.5); } .vscode-high-contrast blockquote { background: transparent; border-color: #fff; }
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-left: 40px; } .task-list-item { list-style-type: none; } .task-list-item-checkbox { vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="sample-app-to-demo-a-bug-in-objectify">Sample app to demo a bug in objectify</h1>
+<h2 id="one-time-setup-only-if-you-want-to-deploy-to-appengine">One time setup only if you want to deploy to appengine</h2>
+<ul>
+<li>Replace WEB_CLIENT_ID in Constants.java</li>
+<li>Replace conferencecentral2 in appengine-web.xml</li>
+<li>Replace conferencecentral2 in pom.xml</li>
+</ul>
+<h2 id="maven-commands">Maven commands</h2>
+<pre><code>mvn clean install
+mvn eclipse:clean
+mvn eclipse:eclipse
+mvn appengine:run
+</code></pre>
+<h2 id="steps-to-reproduce-the-problem">Steps To reproduce the problem</h2>
+<ol>
+<li>Execute <code>mvn clean compile test</code>. Notice that the OrderTest passes. It is able to read the Profile.</li>
+<li>Go to api explorer at http://localhost:8080/_ah/explorer</li>
+<li>Create a product with id <code>a1</code> , no need to authenticate</li>
+<li>Create an order, requires authentication, use this JSON
+{
+&quot;orderQty&quot;:
+[
+{
+&quot;productId&quot;: &quot;a1&quot;,
+&quot;qty&quot;: &quot;12&quot;
+}
+]
+}</li>
+<li>You will see the followig exception:<pre><code>java.io.IOException: com.fasterxml.jackson.databind.JsonMappingException: Direct self-reference leading to cycle (through reference chain: com.conferencecentral.api.domain.Order["profile"]->com.googlecode.objectify.impl.ref.LiveRef["key"]->com.googlecode.objectify.Key["root"])
+at com.google.api.server.spi.response.ServletResponseResultWriter.writeValueAsString(ServletResponseResultWriter.java:212)
+at com.google.api.server.spi.response.ServletResponseResultWriter.write(ServletResponseResultWriter.java:101)
+at com.google.api.server.spi.SystemService.invokeServiceMethod(SystemService.java:352)
+at com.google.api.server.spi.handlers.EndpointsMethodHandler$RestHandler.handle(EndpointsMethodHandler.java:119)
+at com.google.api.server.spi.handlers.EndpointsMethodHandler$RestHandler.handle(EndpointsMethodHandler.java:102)
+at com.google.api.server.spi.dispatcher.PathDispatcher.dispatch(PathDispatcher.java:50)
+at com.google.api.server.spi.EndpointsServlet.service(EndpointsServlet.java:71)
+at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:848)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1772)
+at com.googlecode.objectify.ObjectifyFilter.doFilter(ObjectifyFilter.java:48)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1759)
+at com.google.appengine.tools.development.ResponseRewriterFilter.doFilter(ResponseRewriterFilter.java:134)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1759)
+at com.google.appengine.tools.development.HeaderVerificationFilter.doFilter(HeaderVerificationFilter.java:34)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1759)
+at com.google.appengine.api.blobstore.dev.ServeBlobFilter.doFilter(ServeBlobFilter.java:63)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1759)
+at com.google.apphosting.utils.servlet.TransactionCleanupFilter.doFilter(TransactionCleanupFilter.java:48)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1759)
+at com.google.appengine.tools.development.jetty9.StaticFileFilter.doFilter(StaticFileFilter.java:123)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1759)
+at com.google.appengine.tools.development.DevAppServerModulesFilter.doDirectRequest(DevAppServerModulesFilter.java:366)
+at com.google.appengine.tools.development.DevAppServerModulesFilter.doDirectModuleRequest(DevAppServerModulesFilter.java:349)
+at com.google.appengine.tools.development.DevAppServerModulesFilter.doFilter(DevAppServerModulesFilter.java:116)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1759)
+at com.google.appengine.tools.development.DevAppServerRequestLogFilter.doFilter(DevAppServerRequestLogFilter.java:44)
+at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1751)
+at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:582)
+at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:524)
+at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1180)
+at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:512)
+at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1112)
+at com.google.appengine.tools.development.jetty9.DevAppEngineWebAppContext.doScope(DevAppEngineWebAppContext.java:94)
+at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:134)
+at com.google.appengine.tools.development.jetty9.JettyContainerService$ApiProxyHandler.handle(JettyContainerService.java:597)
+at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:134)
+at org.eclipse.jetty.server.Server.handle(Server.java:534)
+at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:320)
+at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:283)
+at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:108)
+at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:93)
+at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.executeProduceConsume(ExecuteProduceConsume.java:303)
+at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceConsume(ExecuteProduceConsume.java:148)
+at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:136)
+at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:671)
+at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:589)
+at java.lang.Thread.run(Thread.java:745)
+</code></pre>
+</li>
+<li>If we comment the following line in <code>Order.java</code>, the error will disappear but then the unit test will fail with a <code>NullPointerException</code> because the profile is not present.<pre><code>this.profile = Ref.create(Key.create(Profile.class, profile.getUserId()));
+</code></pre>
+</li>
+<li>Execute <code>order.queryOrdersByProductsAdmin</code>, pass <code>a1</code> as the product id and you will get the same error.</li>
+</ol>
+
+    </body>
+    </html>

@@ -1,0 +1,5 @@
+<!-- Sample datastore-indexes containing indexes we need for the web UI -->
+<datastore-indexes autoGenerate="true">
+
+
+</datastore-indexes>

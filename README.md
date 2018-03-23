@@ -1,4 +1,24 @@
-# Sample app to demo a bug in objectify
+#  @Parent is not loaded even though it has @Load annotation. Here's the relevant code.
+    ```
+    @Cache
+    @Entity
+    public class Order {
+        @Id private Long id;
+        @Parent @Load public Ref<Profile> profile;
+        @Index private String title;
+        @Load @Index List<Ref<Product>> products = new ArrayList<Ref<Product>>(10);
+        Map<String, OrderedProduct> orderedProducts = new HashMap<String, OrderedProduct>(10);
+
+        @SuppressWarnings("unused")
+        private Order() {}
+        
+        public Order(final Profile profile,
+                    final OrderForm orderForm
+                ) {
+                this.profile = Ref.create(Key.create(Profile.class, profile.getUserId()));
+
+    ```
+## Sample app to demo a @Load bug in objectify.
 - `git clone git@github.com:askrht/order-demo.git`
 
 ## One time setup only if you want to deploy to appengine

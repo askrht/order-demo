@@ -20,7 +20,28 @@ ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-le
         </style>
     </head>
     <body>
-        <h1 id="sample-app-to-demo-a-bug-in-objectify">Sample app to demo a bug in objectify</h1>
+        <h1 id="parent-is-not-loaded-even-though-it-has-load-annotation-heres-the-relevant-code">@Parent is not loaded even though it has @Load annotation. Here's the relevant code.</h1>
+<pre><code>```
+@Cache
+@Entity
+public class Order {
+    @Id private Long id;
+    @Parent @Load public Ref&lt;Profile&gt; profile;
+    @Index private String title;
+    @Load @Index List&lt;Ref&lt;Product&gt;&gt; products = new ArrayList&lt;Ref&lt;Product&gt;&gt;(10);
+    Map&lt;String, OrderedProduct&gt; orderedProducts = new HashMap&lt;String, OrderedProduct&gt;(10);
+
+    @SuppressWarnings(&quot;unused&quot;)
+    private Order() {}
+    
+    public Order(final Profile profile,
+                final OrderForm orderForm
+            ) {
+            this.profile = Ref.create(Key.create(Profile.class, profile.getUserId()));
+
+```
+</code></pre>
+<h2 id="sample-app-to-demo-a-load-bug-in-objectify">Sample app to demo a @Load bug in objectify.</h2>
 <ul>
 <li><code>git clone git@github.com:askrht/order-demo.git</code></li>
 </ul>

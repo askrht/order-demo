@@ -1,4 +1,5 @@
 # Sample app to demo a bug in objectify
+- `git clone git@github.com:askrht/order-demo.git`
 
 ## One time setup only if you want to deploy to appengine
 - Replace WEB_CLIENT_ID in Constants.java
@@ -12,7 +13,7 @@
     mvn appengine:run
 
 ## Steps To reproduce the problem
-1. Execute `mvn clean compile test`. Notice that the OrderTest passes. It is able to read the Profile.
+1. Execute `mvn clean compile test`. Notice that the `OrderTest` passes. It is able to read the Profile.
 1. Go to api explorer at http://localhost:8080/_ah/explorer
 1. Create a product with id `a1` , no need to authenticate
 1. Create an order, requires authentication, use this JSON
@@ -25,7 +26,7 @@
             }
         ]
     }
-1. You will see the followig exception:
+1. You will see the following exception:
     ```
     java.io.IOException: com.fasterxml.jackson.databind.JsonMappingException: Direct self-reference leading to cycle (through reference chain: com.conferencecentral.api.domain.Order["profile"]->com.googlecode.objectify.impl.ref.LiveRef["key"]->com.googlecode.objectify.Key["root"])
 	at com.google.api.server.spi.response.ServletResponseResultWriter.writeValueAsString(ServletResponseResultWriter.java:212)

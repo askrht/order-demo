@@ -11,6 +11,8 @@ import com.conferencecentral.api.LoadGroups.Stopper;
 import com.conferencecentral.api.form.OrderForm;
 import com.conferencecentral.api.form.OrderQty;
 import com.google.common.collect.ImmutableMap;
+import com.google.api.server.spi.config.AnnotationBoolean;
+import com.google.api.server.spi.config.ApiResourceProperty;
 import com.google.common.collect.ImmutableList;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Ref;
@@ -26,6 +28,7 @@ import com.googlecode.objectify.annotation.Parent;
 @Entity
 public class Order {
     @Id private Long id;
+    @ApiResourceProperty(ignored = AnnotationBoolean.TRUE)
     @Parent @Load public Ref<Profile> profile;
 //    @Parent @Load(value={Everything.class}, unless=Stopper.class) Ref<Profile> profile;
     @Index private String title;
@@ -62,6 +65,7 @@ public class Order {
         this.orderedProducts = ImmutableMap.copyOf(opl);
     }
 
+    @ApiResourceProperty(ignored = AnnotationBoolean.TRUE)
     public Ref<Profile> getProfile() {
 		return this.profile;
 	}

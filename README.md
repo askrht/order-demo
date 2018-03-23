@@ -38,6 +38,7 @@
 1. Go to api explorer at http://localhost:8080/_ah/explorer
 1. Create a product with id `a1` , no need to authenticate
 1. Create an order, requires authentication, use this JSON
+    ```
     {
         "orderQty": 
         [
@@ -47,6 +48,7 @@
             }
         ]
     }
+    ```
 1. You will see the following exception:
     ```
     java.io.IOException: com.fasterxml.jackson.databind.JsonMappingException: Direct self-reference leading to cycle (through reference chain: com.conferencecentral.api.domain.Order["profile"]->com.googlecode.objectify.impl.ref.LiveRef["key"]->com.googlecode.objectify.Key["root"])
@@ -109,3 +111,11 @@
     this.profile = Ref.create(Key.create(Profile.class, profile.getUserId()));
     ```
 1. Execute `order.queryOrdersByProductsAdmin`, pass `a1` as the product id and you will get the same error.
+
+## Workaround
+1. `git checkout workaround`
+1. Added the following annotation to the `profile` property inside `Order.java`.
+    ```
+	@ApiResourceProperty(ignored = AnnotationBoolean.TRUE)
+	```
+1. Now there is no error when you create an order or execute the service `order.queryOrdersByProductsAdmin`. Also, the profile is not present in the JSON which is returned. So, the problem now becomes to how to `@Load` a `@Parent` `Ref` in an Endpoints application.

@@ -21,6 +21,9 @@ ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-le
     </head>
     <body>
         <h1 id="sample-app-to-demo-a-bug-in-objectify">Sample app to demo a bug in objectify</h1>
+<ul>
+<li><code>git clone git@github.com:askrht/order-demo.git</code></li>
+</ul>
 <h2 id="one-time-setup-only-if-you-want-to-deploy-to-appengine">One time setup only if you want to deploy to appengine</h2>
 <ul>
 <li>Replace WEB_CLIENT_ID in Constants.java</li>
@@ -35,7 +38,7 @@ mvn appengine:run
 </code></pre>
 <h2 id="steps-to-reproduce-the-problem">Steps To reproduce the problem</h2>
 <ol>
-<li>Execute <code>mvn clean compile test</code>. Notice that the OrderTest passes. It is able to read the Profile.</li>
+<li>Execute <code>mvn clean compile test</code>. Notice that the <code>OrderTest</code> passes. It is able to read the Profile.</li>
 <li>Go to api explorer at http://localhost:8080/_ah/explorer</li>
 <li>Create a product with id <code>a1</code> , no need to authenticate</li>
 <li>Create an order, requires authentication, use this JSON
@@ -48,7 +51,7 @@ mvn appengine:run
 }
 ]
 }</li>
-<li>You will see the followig exception:<pre><code>java.io.IOException: com.fasterxml.jackson.databind.JsonMappingException: Direct self-reference leading to cycle (through reference chain: com.conferencecentral.api.domain.Order["profile"]->com.googlecode.objectify.impl.ref.LiveRef["key"]->com.googlecode.objectify.Key["root"])
+<li>You will see the following exception:<pre><code>java.io.IOException: com.fasterxml.jackson.databind.JsonMappingException: Direct self-reference leading to cycle (through reference chain: com.conferencecentral.api.domain.Order["profile"]->com.googlecode.objectify.impl.ref.LiveRef["key"]->com.googlecode.objectify.Key["root"])
 at com.google.api.server.spi.response.ServletResponseResultWriter.writeValueAsString(ServletResponseResultWriter.java:212)
 at com.google.api.server.spi.response.ServletResponseResultWriter.write(ServletResponseResultWriter.java:101)
 at com.google.api.server.spi.SystemService.invokeServiceMethod(SystemService.java:352)
